@@ -18,8 +18,8 @@ public class Main {
 		System.out.println("Oi");
 		MongoClient mongoClient = new MongoClient();
 		MongoDatabase db = mongoClient.getDatabase("Amazon");
-		String fields = "{imURL:true}";
-		FindIterable<Document> iterable = db.getCollection("products_metadata").find(fields).limit(10);
+		
+		FindIterable<Document> iterable = db.getCollection("products_metadata").find().limit(10);
 		iterable.forEach(new Block<Document>() {
 		    @Override
 		    public void apply(final Document document) {
